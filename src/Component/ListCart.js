@@ -1,13 +1,21 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react"; // remove this comment when use localStorage
+import { useState } from "react"; // remove this line when use the localStorage
 //component
 import ListCartItem from "./ListCartItem";
 
-const getLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("list"));
-};
+//remove this line to use localStorage and save the data when page is reloaded
+
+// const getLocalStorage = () => {
+//   return JSON.parse(localStorage.getItem("list"));
+// };
 const ListCart = () => {
   const [itemChange, setItemChange] = useState("");
-  const [item, setItem] = useState(getLocalStorage());
+
+  //remove this line to use localStorage and save the data when page is reloaded
+
+  // const [item, setItem] = useState(getLocalStorage());
+
+  const [item, setItem] = useState([]); // remove this line when use localStorage
   const itemEvent = (event) => {
     setItemChange(event.target.value);
   };
@@ -30,9 +38,12 @@ const ListCart = () => {
       });
     });
   };
-  useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(item));
-  }, [item]);
+
+  //remove this line to use localStorage and save the data when page is reloaded
+
+  // useEffect(() => {
+  //   localStorage.setItem("list", JSON.stringify(item));
+  // }, [item]);
 
   return (
     <>
